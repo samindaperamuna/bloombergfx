@@ -1,0 +1,20 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.8.RELEASE'
+    id 'java'
+}
+
+jar {
+    baseName = 'bloombergfx'
+    version =  '0.0.1'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
