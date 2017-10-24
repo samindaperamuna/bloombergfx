@@ -2,9 +2,17 @@ package bloombergfx.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Record {
 
+	@Id
+	@Column(name = "record_id")
 	protected long id;
+
 	protected String fromCurrency;
 	protected String toCurrency;
 	protected Date timeStamp;
