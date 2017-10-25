@@ -1,6 +1,8 @@
 package bloombergfx.model;
 
+import java.util.Currency;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -87,6 +89,25 @@ public class Record {
 	}
 
 	public Record validate() {
+		Set<Currency> currencies = Currency.getAvailableCurrencies();
+
+		try {
+			if (!currencies.contains(Currency.getInstance(this.fromCurrency))
+					|| !currencies.contains(Currency.getInstance(this.toCurrency))) {
+				return new InvalidRecord(this);
+			}
+
+			if (this.fromCurrency.equals(this.toCurrency)) {
+				return new InvalidRecord(this);
+			}
+
+			if (this.amount <= 0) {
+				return new InvalidRecord(this);
+			}
+		} catch (Exception e) {
+			return new InvalidRecord(this);
+		}
+
 		ValidRecord record = new ValidRecord(this);
 		return record;
 	}

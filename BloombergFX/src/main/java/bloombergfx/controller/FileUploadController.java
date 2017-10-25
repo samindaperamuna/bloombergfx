@@ -35,6 +35,7 @@ public class FileUploadController {
 	public String retrieveFile(@RequestParam("file") MultipartFile file, Model model) {
 		CSVFile csvFile = new CSVFile();
 		csvFile.setFileName(file.getOriginalFilename());
+		int errorFreeRecords = 0;
 
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
 			String line;
@@ -57,6 +58,8 @@ public class FileUploadController {
 
 							record.setTimeStamp(df.parse(tokens[3]));
 							record.setAmount(Double.parseDouble(tokens[4]));
+
+							errorFreeRecords++;
 						} catch (Exception e) {
 							System.err.println("Cant parse line : " + line + " " + e.getLocalizedMessage());
 						}
@@ -82,15 +85,20 @@ public class FileUploadController {
 		CSVFile found = fileRepository.findByFileName(csvFile.getFileName());
 
 		if (found == null) {
-			fileRepository.save(csvFile);
-			model.addAttribute("message", "File successfully saved!");
+			if (errorFreeRecords > 0) {
+				fileRepository.save(csvFile);
+				model.addAttribute("message", "File successfully saved!");
 
-			return "upload_result";
+				return "upload_result";
+			} else {
+				model.addAttribute("message", "Not a single valid record was found!");
+
+				return "upload_file";
+			}
 		} else {
 			model.addAttribute("message", "File already exists!");
 
 			return "upload_file";
 		}
-
 	}
 }

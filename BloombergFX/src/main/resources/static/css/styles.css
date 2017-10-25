@@ -2,6 +2,11 @@ BODY {
 	font-family: monospace;
 }
 
+A {
+	text-decoration: none;
+	color: inherit;
+}
+
 .header {
 	background: aliceblue;
 	padding: 10px;
@@ -41,6 +46,11 @@ BODY {
 
 .content-header {
 	padding: 10px;
+}
+
+.content-body {
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .button-container {
@@ -93,4 +103,22 @@ BODY {
 	border-radius: 10px;
 	margin-top: 20px;
 	margin-bottom: 10px;
+}
+
+.control-group {
+	width: 100%;
+	display: inline-block;
+}
+
+.control-group LABEL {
+	width: 200px;
+	float: left;
+}
+
+.control-group INPUT {
+	width: 500px;
+}
+
+.data-table {
+	display: none;
 }

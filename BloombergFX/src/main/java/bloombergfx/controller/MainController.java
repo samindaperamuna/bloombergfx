@@ -11,12 +11,4 @@ public class MainController {
 
 		return "index";
 	}
-
-	@GetMapping("/viewRecords")
-	public String viewRecords() {
-
-		return "view_records";
-	}
-
-
 }

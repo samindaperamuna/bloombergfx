@@ -7,6 +7,10 @@ import javax.persistence.Table;
 @Table(name = "invalid_record")
 public class InvalidRecord extends Record {
 
+	public InvalidRecord() {
+
+	}
+
 	public InvalidRecord(Record record) {
 		super(record.getId(), record.getFromCurrency(), record.getToCurrency(), record.getTimeStamp(),
 				record.getAmount(), record.getFile());

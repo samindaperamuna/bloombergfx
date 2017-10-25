@@ -1,0 +1,42 @@
+{
+  "id": 83456,
+  "num_rows": 1000,
+  "file_format": "csv",
+  "name": "BloombergFX",
+  "include_header": true,
+  "columns": [
+    {
+      "name": "Deal Unique Id",
+      "null_percentage": 0,
+      "type": "Row Number",
+      "formula": ""
+    },
+    {
+      "name": "From Currency ISO Code \"Ordering Currency\"",
+      "null_percentage": 0,
+      "type": "Currency Code",
+      "formula": ""
+    },
+    {
+      "name": "To Currency ISO Code",
+      "null_percentage": 0,
+      "type": "Currency Code",
+      "formula": ""
+    },
+    {
+      "name": "Deal timestamp",
+      "null_percentage": 0,
+      "type": "Blank",
+      "formula": "now()"
+    },
+    {
+      "name": "Deal Amount in ordering currency",
+      "null_percentage": 0,
+      "type": "Number",
+      "min": 10,
+      "max": 10000,
+      "decimals": 2,
+      "formula": ""
+    }
+  ]
+}

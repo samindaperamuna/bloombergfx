@@ -1,4 +1,5 @@
-	<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>BloombergFX - Upload File</title>
@@ -9,17 +10,19 @@
 	<div class="content">
 		<div th:replace="fragments/header :: header"></div>
 
-		<p>Please select a file to upload</p>
-		<div id="message" th:if="${message != null}" class="message" th:text="${message}"></div>
+		<div class="content-body">
+			<p>Please select a file to upload</p>
+			<div id="message" th:if="${message != null}" class="message" th:text="${message}"></div>
 
-		<form id="form" action="uploadFile" method="post" enctype="multipart/form-data">
-			<label id="file-path" class="file-path" for="file-upload"></label><label class="button upload-button" for="file-upload">Browse</label>
-			<input id="file-upload" name="file" class="file-input" type="file" />
+			<form id="form" action="uploadFile" method="post" enctype="multipart/form-data">
+				<label id="file-path" class="file-path" for="file-upload"></label><label class="button upload-button" for="file-upload">Browse</label>
+				<input id="file-upload" name="file" class="file-input" type="file" />
 
-			<div class="button-container">
-				<input id="upload" class="button" type="submit" value="Upload" />
-			</div>
-		</form>
+				<div class="button-container">
+					<input id="upload" class="button" type="submit" value="Upload" />
+				</div>
+			</form>
+		</div>
 	</div>
 
 	<div th:replace="fragments/footer :: footer"></div>
