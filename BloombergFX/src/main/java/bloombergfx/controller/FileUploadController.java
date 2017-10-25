@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import bloombergfx.data.CSVFileRepository;
+import bloombergfx.data.service.UpdateDealsService;
 import bloombergfx.model.CSVFile;
 import bloombergfx.model.InvalidRecord;
 import bloombergfx.model.Record;
@@ -22,8 +25,13 @@ import bloombergfx.model.ValidRecord;
 @Controller
 public class FileUploadController {
 
+	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+
 	@Autowired
 	CSVFileRepository fileRepository;
+
+	@Autowired
+	UpdateDealsService updateDealsService;
 
 	@GetMapping("/uploadFile")
 	public String uploadFile() {
@@ -46,7 +54,7 @@ public class FileUploadController {
 					String[] tokens = line.split(",");
 
 					if (tokens.length == 5) {
-						Record record = new Record();
+						final Record record = new Record();
 						record.setFile(csvFile);
 
 						try {
@@ -61,7 +69,7 @@ public class FileUploadController {
 
 							errorFreeRecords++;
 						} catch (Exception e) {
-							System.err.println("Cant parse line : " + line + " " + e.getLocalizedMessage());
+							logger.info("Cant parse line : " + line + " " + e.getLocalizedMessage());
 						}
 
 						Record tempRecord = record.validate();
@@ -72,14 +80,14 @@ public class FileUploadController {
 							csvFile.getValidRecords().add((ValidRecord) tempRecord);
 						}
 					} else {
-						System.err.println("Invalid record : " + line);
+						logger.info("Invalid record : " + line);
 					}
 				}
 
 				lineNo++;
 			}
 		} catch (IOException e) {
-			System.err.println("Cannot read the file : " + e.getLocalizedMessage());
+			logger.info("Cannot read the file : " + e.getLocalizedMessage());
 		}
 
 		CSVFile found = fileRepository.findByFileName(csvFile.getFileName());
@@ -88,6 +96,8 @@ public class FileUploadController {
 			if (errorFreeRecords > 0) {
 				fileRepository.save(csvFile);
 				model.addAttribute("message", "File successfully saved!");
+
+				updateDealsService.updateDeals(csvFile.getValidRecords());
 
 				return "upload_result";
 			} else {
@@ -101,4 +111,5 @@ public class FileUploadController {
 			return "upload_file";
 		}
 	}
+
 }
