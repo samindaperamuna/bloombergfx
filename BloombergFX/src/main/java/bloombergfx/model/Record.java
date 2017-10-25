@@ -3,7 +3,10 @@ package bloombergfx.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
@@ -17,6 +20,23 @@ public class Record {
 	protected String toCurrency;
 	protected Date timeStamp;
 	protected Double amount;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "file_id", referencedColumnName = "id")
+	private CSVFile file;
+
+	public Record() {
+	}
+
+	public Record(long id, String fromCurrency, String toCurrency, Date timeStamp, Double amount, CSVFile file) {
+		super();
+		this.id = id;
+		this.fromCurrency = fromCurrency;
+		this.toCurrency = toCurrency;
+		this.timeStamp = timeStamp;
+		this.amount = amount;
+		this.file = file;
+	}
 
 	public long getId() {
 		return id;
@@ -58,7 +78,16 @@ public class Record {
 		this.amount = amount;
 	}
 
+	public CSVFile getFile() {
+		return file;
+	}
+
+	public void setFile(CSVFile file) {
+		this.file = file;
+	}
+
 	public Record validate() {
-		throw new UnsupportedOperationException();
+		ValidRecord record = new ValidRecord(this);
+		return record;
 	}
 }

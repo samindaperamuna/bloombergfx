@@ -65,3 +65,32 @@ BODY {
 .button:hover {
 	background: beige;
 }
+
+.upload-button {
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.file-path {
+	width: 650px;
+	height: 17px;
+	border: 1px solid cadetblue;
+	float: left;
+	margin-right: 50px;
+	padding-left: 5px;
+}
+
+.file-input {
+	display: none;
+}
+
+.message {
+	text-align: center;
+	padding: 20px;
+	color: cornflowerblue;
+	background: cornsilk;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}

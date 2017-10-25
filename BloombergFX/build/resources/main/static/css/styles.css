@@ -84,13 +84,3 @@ BODY {
 .file-input {
 	display: none;
 }
-
-.message {
-	text-align: center;
-	padding: 20px;
-	color: cornflowerblue;
-	background: cornsilk;
-	border-radius: 10px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}

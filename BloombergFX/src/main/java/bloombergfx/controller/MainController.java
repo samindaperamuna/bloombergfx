@@ -17,4 +17,6 @@ public class MainController {
 
 		return "view_records";
 	}
+
+
 }

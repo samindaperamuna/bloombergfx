@@ -6,5 +6,7 @@ import bloombergfx.model.CSVFile;
 
 public interface CSVFileRepository extends JpaRepository<CSVFile, Long> {
 
+	CSVFile findByFileName(String fileName);
+
 	<S extends CSVFile> S save(S file);
 }
