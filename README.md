@@ -4,9 +4,9 @@ This is an application to analyze, validate and store data from a set of CSV fil
 
 ## How to set up the project.
 
-Install mysql server and create a database named bloombergfx either with root permission or under a new user. Change the "Application.properties" to reflect the database settings. 
+Install mysql server and create a database named bloombergfx either with root permission or under a new user. Change the **application.properties** to reflect the database settings. 
 
-Build using the following command (Linux terminal and Windows powershell). Make sure you have set "JAVA_HOME" to a valid JDK location.
+Build using the following command (Linux terminal and Windows powershell). Make sure you have set **JAVA_HOME** to a valid JDK location.
 ```bash
 .\gradlew build
 ```
