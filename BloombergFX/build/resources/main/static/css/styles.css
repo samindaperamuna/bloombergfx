@@ -2,6 +2,11 @@ BODY {
 	font-family: monospace;
 }
 
+A {
+	text-decoration: none;
+	color: inherit;
+}
+
 .header {
 	background: aliceblue;
 	padding: 10px;
@@ -43,6 +48,11 @@ BODY {
 	padding: 10px;
 }
 
+.content-body {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 .button-container {
 	width: 400px;
 	margin: auto;
@@ -82,5 +92,33 @@ BODY {
 }
 
 .file-input {
+	display: none;
+}
+
+.message {
+	text-align: center;
+	padding: 20px;
+	color: cornflowerblue;
+	background: cornsilk;
+	border-radius: 10px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.control-group {
+	width: 100%;
+	display: inline-block;
+}
+
+.control-group LABEL {
+	width: 200px;
+	float: left;
+}
+
+.control-group INPUT {
+	width: 500px;
+}
+
+.data-table {
 	display: none;
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>BloombergFX - Records</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="plugins/Vanila Datatables/css/vanilla-dataTables.min.css" />
+</head>
+<body>
+	<div class="content">
+		<div th:replace="fragments/header :: header"></div>
+
+		<div class="content-body">
+			<p>Only valid records are shown.</p>
+
+			<table id="valid-records" class="data-table" th:if="${not #lists.isEmpty(validRecords)}">
+				<thead>
+					<tr>
+						<th>Deal Id</th>
+						<th>Ordering Currency</th>
+						<th>To Currency</th>
+						<th data-type="date" data-format="MYSQL">Deal Date</th>
+						<th>Deal Amount</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="record : ${validRecords}">
+						<td th:text="${record.id}"></td>
+						<td th:text="${record.fromCurrency}"></td>
+						<td th:text="${record.toCurrency}"></td>
+						<td th:text="${record.timeStamp}"></td>
+						<td th:text="${record.amount}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+<footer>
+	<script type="text/javascript" src="plugins/Vanila Datatables/js/vanilla-dataTables.min.js">
+		
+	</script>
+	<script type="text/javascript" src="js/records.js">
+		
+	</script>
+</footer>
+</html>

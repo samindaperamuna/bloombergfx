@@ -14,23 +14,23 @@ import bloombergfx.model.Deal;
 @Component
 public class DealDbLoader implements ApplicationRunner {
 
-	@Autowired
-	DealRepository dealRespository;
+    @Autowired
+    DealRepository dealRespository;
 
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		createDefaultDeals();
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+	createDefaultDeals();
+    }
+
+    private void createDefaultDeals() {
+	Set<Currency> currencies = Currency.getAvailableCurrencies();
+
+	for (Currency currency : currencies) {
+	    Deal deal = new Deal();
+	    deal.setCurrencyCode(currency.getCurrencyCode());
+	    dealRespository.save(deal);
 	}
 
-	private void createDefaultDeals() {
-		Set<Currency> currencies = Currency.getAvailableCurrencies();
-
-		for (Currency currency : currencies) {
-			Deal deal = new Deal();
-			deal.setCurrencyCode(currency.getCurrencyCode());
-			dealRespository.save(deal);
-		}
-
-		dealRespository.flush();
-	}
+	dealRespository.flush();
+    }
 }

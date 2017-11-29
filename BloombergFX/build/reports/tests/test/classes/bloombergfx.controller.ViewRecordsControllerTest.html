@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class bloombergfx.controller.ViewRecordsControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class bloombergfx.controller.ViewRecordsControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/bloombergfx.controller.html">bloombergfx.controller</a> &gt; ViewRecordsControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.210s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testGetRecords</td>
+<td>0.126s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testViewRecords</td>
+<td>0.084s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2017-11-30 03:34:39.077  INFO 8520 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [bloombergfx.controller.ViewRecordsControllerTest], using SpringBootContextLoader
+2017-11-30 03:34:39.078  INFO 8520 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [bloombergfx.controller.ViewRecordsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2017-11-30 03:34:39.079  INFO 8520 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [bloombergfx.controller.ViewRecordsControllerTest]: ViewRecordsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2017-11-30 03:34:39.114  INFO 8520 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration bloombergfx.Application for test class bloombergfx.controller.ViewRecordsControllerTest
+2017-11-30 03:34:39.121  INFO 8520 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2017-11-30 03:34:39.126  INFO 8520 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@76c56378, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@47139c30, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@23088cb9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@502b4e34, org.springframework.test.context.transaction.TransactionalTestExecutionListener@da839ea, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5681d673, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@310be55e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3b5b57a5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@77705e4d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2f9a2c9e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@41d50d26, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@20d28cc6]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.8.RELEASE)
+
+2017-11-30 03:34:39.277  INFO 8520 --- [    Test worker] b.controller.ViewRecordsControllerTest   : Starting ViewRecordsControllerTest on SAMINDA-LAPTOP with PID 8520 (started by Saminda in C:\Users\Saminda\git\bloombergfx\BloombergFX)
+2017-11-30 03:34:39.277  INFO 8520 --- [    Test worker] b.controller.ViewRecordsControllerTest   : No active profile set, falling back to default profiles: default
+2017-11-30 03:34:39.282  INFO 8520 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@303873e0: startup date [Thu Nov 30 03:34:39 GST 2017]; root of context hierarchy
+2017-11-30 03:34:40.642  INFO 8520 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@303873e0: startup date [Thu Nov 30 03:34:39 GST 2017]; root of context hierarchy
+2017-11-30 03:34:40.680  INFO 8520 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/viewRecords],methods=[GET]}&quot; onto public java.lang.String bloombergfx.controller.ViewRecordsController.viewRecords()
+2017-11-30 03:34:40.681  INFO 8520 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/viewRecords],methods=[POST]}&quot; onto public java.lang.String bloombergfx.controller.ViewRecordsController.getRecords(java.lang.String,org.springframework.ui.Model)
+2017-11-30 03:34:40.688  INFO 8520 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-30 03:34:40.689  INFO 8520 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-30 03:34:40.757  INFO 8520 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-30 03:34:40.757  INFO 8520 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-30 03:34:40.849  INFO 8520 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-30 03:34:41.176  INFO 8520 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2017-11-30 03:34:41.177  INFO 8520 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2017-11-30 03:34:41.209  INFO 8520 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 30 ms
+2017-11-30 03:34:41.381  INFO 8520 --- [    Test worker] b.controller.ViewRecordsControllerTest   : Started ViewRecordsControllerTest in 2.227 seconds (JVM running for 16.104)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 3.5</a> at 30-Nov-2017 03:34:49</p>
+</div>
+</div>
+</body>
+</html>

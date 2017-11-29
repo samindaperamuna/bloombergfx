@@ -8,7 +8,7 @@ import bloombergfx.model.CSVFile;
 @Repository
 public interface CSVFileRepository extends JpaRepository<CSVFile, Long> {
 
-	CSVFile findByFileName(String fileName);
+    CSVFile findByFileName(String fileName);
 
-	<S extends CSVFile> S save(S file);
+    <S extends CSVFile> S save(S file);
 }

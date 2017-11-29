@@ -8,12 +8,27 @@
 <body>
 	<div class="content">
 		<div th:replace="fragments/header :: header"></div>
+
+		<div class="content-body">
+			<p>Please enter the file name for record lookup.</p>
+			<div id="message" th:if="${message != null}" class="message" th:text="${message}"></div>
+
+			<form id="form" action="viewRecords" method="post">
+				<div class="control-group">
+					<label>File Name : </label>
+					<input id="file-name" type="text" name="file-name" />
+				</div>
+				<div class="button-container">
+					<input id="look-up" class="button" type="submit" value="Look Up" />
+				</div>
+			</form>
+		</div>
 	</div>
 
 	<div th:replace="fragments/footer :: footer"></div>
 </body>
 <footer>
-	<script type="text/javascript" src="js/index.js">
+	<script type="text/javascript" src="js/view_records.js">
 		
 	</script>
 </footer>

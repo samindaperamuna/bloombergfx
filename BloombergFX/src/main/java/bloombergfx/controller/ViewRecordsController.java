@@ -13,32 +13,31 @@ import bloombergfx.model.CSVFile;
 @Controller
 public class ViewRecordsController {
 
-	@Autowired
-	CSVFileRepository fileRepository;
+    @Autowired
+    CSVFileRepository fileRepository;
 
-	@GetMapping("/viewRecords")
-	public String viewRecords() {
-		return "view_records";
+    @GetMapping("/viewRecords")
+    public String viewRecords() {
+	return "view_records";
+    }
+
+    @PostMapping("/viewRecords")
+    public String getRecords(@RequestParam("file-name") String fileName, Model model) {
+
+	if (!fileName.contains(".csv")) {
+	    fileName += ".csv";
 	}
 
-	@PostMapping("/viewRecords")
-	public String getRecords(@RequestParam("file-name") String fileName, Model model) {
+	CSVFile found = fileRepository.findByFileName(fileName);
 
-		if (!fileName.contains(".csv")) {
-			fileName += ".csv";
-		}
+	if (found != null) {
+	    model.addAttribute("validRecords", found.getValidRecords());
 
-		CSVFile found = fileRepository.findByFileName(fileName);
+	    return "records";
+	} else {
+	    model.addAttribute("message", "File not found");
 
-		if (found != null) {
-			model.addAttribute("validRecords", found.getValidRecords());
-
-			return "records";
-		} else {
-			model.addAttribute("message", "File not found");
-
-			return "view_records";
-		}
+	    return "view_records";
 	}
-
+    }
 }

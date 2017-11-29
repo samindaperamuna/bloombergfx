@@ -14,11 +14,11 @@ import bloombergfx.model.Deal;
 @Transactional
 public interface DealRepository extends JpaRepository<Deal, String> {
 
-	Deal findByCurrencyCode(String currencyCode);
+    Deal findByCurrencyCode(String currencyCode);
 
-	<S extends Deal> S save(S deal);
+    <S extends Deal> S save(S deal);
 
-	@Modifying(clearAutomatically = true)
-	@Query("UPDATE Deal d SET d.count = d.count + 1 WHERE d.currencyCode = :currency_code")
-	int update(@Param("currency_code") String currencyCode);
+    @Modifying(clearAutomatically = true)
+    @Query("UPDATE Deal d SET d.count = d.count + 1 WHERE d.currencyCode = :currency_code")
+    int update(@Param("currency_code") String currencyCode);
 }

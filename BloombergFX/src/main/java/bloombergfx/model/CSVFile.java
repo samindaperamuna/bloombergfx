@@ -15,44 +15,44 @@ import javax.persistence.Table;
 @Table(name = "csv_file")
 public class CSVFile {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-	private String fileName;
+    private String fileName;
 
-	@OneToMany(mappedBy = "file", cascade = CascadeType.ALL)
-	private List<ValidRecord> validRecords;
+    @OneToMany(mappedBy = "file", cascade = CascadeType.ALL)
+    private List<ValidRecord> validRecords;
 
-	@OneToMany(mappedBy = "file", cascade = CascadeType.ALL)
-	private List<InvalidRecord> invalidRecords;
+    @OneToMany(mappedBy = "file", cascade = CascadeType.ALL)
+    private List<InvalidRecord> invalidRecords;
 
-	public CSVFile() {
-		this.validRecords = new ArrayList<>();
-		this.invalidRecords = new ArrayList<>();
-	}
+    public CSVFile() {
+	this.validRecords = new ArrayList<>();
+	this.invalidRecords = new ArrayList<>();
+    }
 
-	public String getFileName() {
-		return fileName;
-	}
+    public String getFileName() {
+	return fileName;
+    }
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    public void setFileName(String fileName) {
+	this.fileName = fileName;
+    }
 
-	public List<ValidRecord> getValidRecords() {
-		return validRecords;
-	}
+    public List<ValidRecord> getValidRecords() {
+	return validRecords;
+    }
 
-	public void setValidRecords(List<ValidRecord> validRecords) {
-		this.validRecords = validRecords;
-	}
+    public void setValidRecords(List<ValidRecord> validRecords) {
+	this.validRecords = validRecords;
+    }
 
-	public List<InvalidRecord> getInvalidRecords() {
-		return invalidRecords;
-	}
+    public List<InvalidRecord> getInvalidRecords() {
+	return invalidRecords;
+    }
 
-	public void setInvalidRecords(List<InvalidRecord> invalidRecords) {
-		this.invalidRecords = invalidRecords;
-	}
+    public void setInvalidRecords(List<InvalidRecord> invalidRecords) {
+	this.invalidRecords = invalidRecords;
+    }
 }

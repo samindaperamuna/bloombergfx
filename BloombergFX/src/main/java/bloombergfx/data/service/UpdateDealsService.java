@@ -15,26 +15,26 @@ import bloombergfx.model.ValidRecord;
 @Service
 public class UpdateDealsService {
 
-	private static final Logger logger = LoggerFactory.getLogger(UpdateDealsService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UpdateDealsService.class);
 
-	@Autowired
-	DealRepository dealRespository;
+    @Autowired
+    DealRepository dealRespository;
 
-	@Async
-	public synchronized void updateDeals(final List<ValidRecord> records) {
-		logger.info("Processing deals started .. .");
+    @Async
+    public synchronized void updateDeals(final List<ValidRecord> records) {
+	logger.info("Processing deals started .. .");
 
-		long tStart = System.currentTimeMillis();
+	long tStart = System.currentTimeMillis();
 
-		for (Record record : records) {
-			dealRespository.update(record.getFromCurrency());
-		}
-
-		dealRespository.flush();
-
-		long tEnd = System.currentTimeMillis();
-		long tDelta = tEnd - tStart;
-
-		logger.info("Processing deals completed (" + tDelta + "ms).");
+	for (Record record : records) {
+	    dealRespository.update(record.getFromCurrency());
 	}
+
+	dealRespository.flush();
+
+	long tEnd = System.currentTimeMillis();
+	long tDelta = tEnd - tStart;
+
+	logger.info("Processing deals completed (" + tDelta + "ms).");
+    }
 }
